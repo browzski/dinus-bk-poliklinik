@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthPasien
@@ -16,7 +17,7 @@ class AuthPasien
     public function handle(Request $request, Closure $next): Response
     {
         $sess = $request->session()->get("role");
-        if($sess == "dokter"){
+        if($sess == "pasien"){
             return $next($request);
         }
         return Redirect::to("/");

@@ -5,6 +5,7 @@ use App\Http\Controllers\BotController;
 use App\Http\Controllers\DokterController;
 use App\Http\Controllers\GitlabDataController;
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\PasienController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AdminController::class,'index']);
@@ -40,9 +41,9 @@ Route::prefix("/dokter")->middleware("auth_dokter")->group(function(){
 });
 
 Route::prefix("/pasien")->middleware("auth_pasien")->group(function(){
-    Route::get('/',[DokterController::class,'dashboard']);
-    Route::get('/login',[DokterController::class,'getLogin'])->withoutMiddleware("auth_dokter");
-    Route::post('/login',[DokterController::class,'postLogin'])->withoutMiddleware("auth_dokter");
+    Route::get('/',[PasienController::class,'dashboard']);
+    Route::get('/login',[PasienController::class,'getLogin'])->withoutMiddleware("auth_pasien");
+    Route::post('/login',[PasienController::class,'postLogin'])->withoutMiddleware("auth_pasien");
     Route::prefix("/periksa")->group(function(){
 
     });

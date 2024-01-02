@@ -1,5 +1,5 @@
 @extends('templates.auth')
-@section('title','Login Admin')
+@section('title','Login Pasien')
 @section('content')
 <div class="peers ai-s fxw-nw h-100vh">
     <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("{{url("assets/static/images/bg.jpg")}}")'>
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style="min-width: 320px;">
-      <h4 class="fw-300 c-grey-900 mB-40">Login Admin</h4>
+      <h4 class="fw-300 c-grey-900 mB-40">Login Pasien</h4>
       <form action="" method="POST">
         @csrf
         <div class="mb-3">
