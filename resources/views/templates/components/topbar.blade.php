@@ -26,7 +26,7 @@
                             alt="">
                     </div>
                     <div class="peer">
-                        <span class="fsz-sm c-grey-900">{{session()->get('role')}}</span>
+                        <span class="fsz-sm c-grey-900">{{session()->all()['data']->nama}}</span>
                     </div>
                 </a>
                 <ul class="dropdown-menu fsz-sm">

@@ -1,5 +1,5 @@
 @extends('templates.main_admin')
-@section('title', 'Dokter - Index')
+@section('title', 'Poliklinik - Index')
 @section('content')
     <div class="row gap-20 masonry pos-r">
         <div class="masonry-sizer col-md-6"></div>
@@ -7,11 +7,11 @@
             <div class="bgc-white bd bdrs-3 p-20 mB-20">
                 <div class="peers ai-c jc-sb gap-40 mB-5">
                     <div class="peer peer-greed">
-                        <h4>Data Dokter</h4>
+                        <h4>Data Poliklinik</h4>
                     </div>
                     <div class="peer mR-0">
                         <div class="text-end">
-                            <a href="{{url('/admin/dokter/create')}}" class="btn cur-p btn-primary btn-color">Tambah Dokter</a>
+                            <a href="{{url('/admin/poliklinik/create')}}" class="btn cur-p btn-primary btn-color">Tambah Poliklinik</a>
                         </div>
                     </div>
                 </div>
@@ -19,25 +19,21 @@
                     <thead class="table-dark  ">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nama Dokter</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">No. HP</th>
-                            <th scope="col">Poliklinik</th>
+                            <th scope="col">Nama Poliklinik</th>
+                            <th scope="col">Keterangan</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                       @foreach($dokter_list as $dokter)
+                       @foreach($poliklinik_list as $poliklinik)
                        <tr>
                         <th scope="row">{{$i++}}</th>
-                        <td>{{$dokter->nama}}</td>
-                        <td>{{$dokter->alamat}}</td>
-                        <td>{{$dokter->no_hp}}</td>
-                        <td>{{$dokter->poliklinik->nama_poli}}</td>
+                        <td>{{$poliklinik->nama_poli}}</td>
+                        <td>{{ \Illuminate\Support\Str::limit($poliklinik->keterangan, $limit = 100, $end = '...')}}</td>
                         <td>
-                            <a href="{{url("/admin/dokter/{$dokter->id}/edit")}}" class="btn cur-p btn-info btn-color">Edit</a>
-                            <a href="{{url("/admin/dokter/{$dokter->id}/delete")}}" class="btn cur-p btn-danger btn-color">Delete</a>
+                            <a href="{{url("/admin/poliklinik/{$poliklinik->id}/edit")}}" class="btn cur-p btn-info btn-color">Edit</a>
+                            <a href="{{url("/admin/poliklinik/{$poliklinik->id}/delete")}}" class="btn cur-p btn-danger btn-color">Delete</a>
 
                         </td>
                        </tr>
@@ -46,7 +42,7 @@
                 </table>
             </div>
             <div class="text-center">
-                {{$dokter_list->links()}}
+                {{$poliklinik_list->links()}}
             </div>
         </div>
     </div>

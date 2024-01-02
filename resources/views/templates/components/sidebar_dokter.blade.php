@@ -5,7 +5,7 @@
       <div class="sidebar-logo">
         <div class="peers ai-c fxw-nw">
           <div class="peer peer-greed">
-            <a class="sidebar-link td-n" href="index.html">
+            <a class="sidebar-link td-n" href="{{url('/dokter')}}">
               <div class="peers ai-c fxw-nw">
                 <div class="peer">
                   <div class="logo">
@@ -31,7 +31,7 @@
       <!-- ### $Sidebar Menu ### -->
       <ul class="sidebar-menu scrollable pos-r">
         <li class="nav-item mT-30 actived">
-          <a class="sidebar-link" href="index.html">
+          <a class="sidebar-link" href="{{url('/dokter')}}">
             <span class="icon-holder">
               <i class="c-blue-500 ti-home"></i>
             </span>
@@ -39,7 +39,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="sidebar-link" href="email.html">
+          <a class="sidebar-link" href="{{url('/dokter/periksa')}}">
             <span class="icon-holder">
               <i class="c-brown-500 ti-user"></i>
             </span>
@@ -47,7 +47,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="sidebar-link" href="compose.html">
+          <a class="sidebar-link" href="{{url('/dokter/obat/catatan')}}">
             <span class="icon-holder">
               <i class="c-blue-500 ti-share"></i>
             </span>
@@ -55,7 +55,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="sidebar-link" href="calendar.html">
+          <a class="sidebar-link" href="{{url('/dokter/periksa/biaya')}}">
             <span class="icon-holder">
               <i class="c-deep-orange-500 ti-calendar"></i>
             </span>
@@ -63,7 +63,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="sidebar-link" href="compose.html">
+          <a class="sidebar-link" href="{{url('/dokter/pasien/riwayat')}}">
             <span class="icon-holder">
               <i class="c-blue-500 ti-share"></i>
             </span>
@@ -71,7 +71,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="sidebar-link" href="email.html">
+          <a class="sidebar-link" href="{{url('/dokter/jadwal')}}">
+            <span class="icon-holder">
+              <i class="c-deep-orange-500 ti-calendar"></i>
+            </span>
+            <span class="title">Input Jadwal Periksa</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="sidebar-link" href="{{url('/dokter/profile')}}">
             <span class="icon-holder">
               <i class="c-brown-500 ti-user"></i>
             </span>

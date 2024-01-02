@@ -6,6 +6,7 @@ use App\Http\Controllers\DokterController;
 use App\Http\Controllers\GitlabDataController;
 use App\Http\Controllers\ObatController;
 use App\Http\Controllers\PasienController;
+use App\Http\Controllers\PoliklinikController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[AdminController::class,'index']);
@@ -26,14 +27,39 @@ Route::prefix("/admin")->middleware("auth_admin")->group(function(){
 
         Route::get('/{id}/delete',[ObatController::class,'destroy']);
     });
+    Route::prefix("/dokter")->group(function(){
+        Route::prefix("/jadwal")->group(function(){
+
+        });
+        Route::get('/create',[DokterController::class,'create']);
+        Route::post('/create',[DokterController::class,'store']);
+        
+        Route::get('/',[DokterController::class,'index']);
+        
+        Route::get('/{id}/edit',[DokterController::class,'edit']);
+        Route::post('/{id}/edit',[DokterController::class,'update']);
+
+        Route::get('/{id}/delete',[DokterController::class,'destroy']);
+    });
+    Route::prefix("/poliklinik")->group(function(){
+        Route::get('/create',[PoliklinikController::class,'create']);
+        Route::post('/create',[PoliklinikController::class,'store']);
+        
+        Route::get('/',[PoliklinikController::class,'index']);
+        
+        Route::get('/{id}/edit',[PoliklinikController::class,'edit']);
+        Route::post('/{id}/edit',[PoliklinikController::class,'update']);
+
+        Route::get('/{id}/delete',[PoliklinikController::class,'destroy']);
+    });
 });
 
 Route::prefix("/dokter")->middleware("auth_dokter")->group(function(){
     Route::get('/',[DokterController::class,'dashboard']);
     Route::get('/login',[DokterController::class,'getLogin'])->withoutMiddleware("auth_dokter");
     Route::post('/login',[DokterController::class,'postLogin'])->withoutMiddleware("auth_dokter");
-    Route::prefix("/periksa")->group(function(){
-
+    Route::prefix("/jadwal")->group(function(){
+        
     });
     Route::prefix("/riwayat")->group(function(){
 

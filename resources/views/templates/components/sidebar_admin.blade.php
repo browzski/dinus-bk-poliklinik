@@ -59,6 +59,14 @@
                        <span class="title">Pasien</span>
                    </a>
                </li>
+               <li class="nav-item ">
+                <a class="sidebar-link" href="{{url("/admin/poliklinik")}}">
+                  <span class="icon-holder">
+                      <i class="c-pink-500 ti-palette"></i>
+                    </span>
+                  <span class="title">Poliklinik</span>
+                </a>
+              </li>
            </ul>
        </div>
    </div>
