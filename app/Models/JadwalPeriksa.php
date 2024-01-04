@@ -10,4 +10,7 @@ class JadwalPeriksa extends Model
     use HasFactory;
     protected $guarded = [];
     protected $table = "jadwal_periksa";
+    public function dokter(){
+        return $this->belongsTo(Dokter::class,"id_dokter");
+    }
 }

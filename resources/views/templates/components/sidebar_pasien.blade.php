@@ -36,19 +36,11 @@
                    </a>
                </li>
                <li class="nav-item">
-                   <a class="sidebar-link" href="email.html">
+                   <a class="sidebar-link" href="{{url("pasien/antrian")}}">
                        <span class="icon-holder">
                            <i class="c-brown-500 ti-user"></i>
                        </span>
                        <span class="title">Daftar ke Poliklinik</span>
-                   </a>
-               </li>
-               <li class="nav-item">
-                   <a class="sidebar-link" href="compose.html">
-                       <span class="icon-holder">
-                           <i class="c-blue-500 ti-share"></i>
-                       </span>
-                       <span class="title">Antrian</span>
                    </a>
                </li>
            </ul>

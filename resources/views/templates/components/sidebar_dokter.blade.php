@@ -39,6 +39,14 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="sidebar-link" href="{{url('/dokter/jadwal')}}">
+            <span class="icon-holder">
+              <i class="c-deep-orange-500 ti-calendar"></i>
+            </span>
+            <span class="title">Input Jadwal Periksa</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="sidebar-link" href="{{url('/dokter/periksa')}}">
             <span class="icon-holder">
               <i class="c-brown-500 ti-user"></i>
@@ -70,14 +78,7 @@
             <span class="title">Riwayat Pasien</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="sidebar-link" href="{{url('/dokter/jadwal')}}">
-            <span class="icon-holder">
-              <i class="c-deep-orange-500 ti-calendar"></i>
-            </span>
-            <span class="title">Input Jadwal Periksa</span>
-          </a>
-        </li>
+      
         <li class="nav-item">
           <a class="sidebar-link" href="{{url('/dokter/profile')}}">
             <span class="icon-holder">

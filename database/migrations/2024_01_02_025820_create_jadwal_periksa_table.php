@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('jadwal_periksa', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("id_dokter");
-            $table->enum("hari",["SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU"]);
+            $table->enum("hari",["SENIN","SELASA","RABU","KAMIS","JUMAT","SABTU","MINGGU"]);
             $table->time("jam_mulai");
             $table->time("jam_selesai");
             $table->timestamps();

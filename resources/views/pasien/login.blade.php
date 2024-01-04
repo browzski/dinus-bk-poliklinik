@@ -25,7 +25,7 @@
           <div class="peers ai-c jc-sb fxw-nw">
             <div class="peer">
               <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-            
+                <a href="{{url('pasien/register')}}" >Register</a>
               </div>
             </div>
             <div class="peer">

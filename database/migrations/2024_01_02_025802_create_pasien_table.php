@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('alamat',255);
             $table->string('no_ktp',255);
             $table->string('no_hp',50);
-            $table->string('no_mm',25);
+            $table->string('no_rm',25);
             $table->timestamps();
         });
     }
