@@ -7,7 +7,7 @@
             <div class="bgc-white bd bdrs-3 p-20 mB-20">
                 <div class="peers ai-c jc-sb gap-40 mB-5">
                     <div class="peer peer-greed">
-                        <h4>Data Poliklinik</h4>
+                        <h4>Data Poliklinik <b>{{$poliklinik->nama_poli}}</b></h4>
                     </div>
                     <div class="peer mR-0">
                         <div class="text-end">
@@ -18,18 +18,24 @@
                     <thead class="table-dark  ">
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nama Poliklinik</th>
+                            <th scope="col">Nama Dokter</th>
+                            <th scope="col">Hari</th>
+                            <th scope="col">Jam Mulai</th>
+                            <th scope="col">Jam Selesai</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                       @foreach($antrian_list as $antrian)
+                       @foreach($jadwal_list as $jadwal)
                        <tr>
                         <th scope="row">{{$i++}}</th>
-                        <td>{{$antrian->nama_poli}}</td>
+                        <td>{{$jadwal->dokter->nama}}</td>
+                        <td>{{$jadwal->hari}}</td>
+                        <td>{{$jadwal->jam_mulai}}</td>
+                        <td>{{$jadwal->jam_selesai}}</td>
                         <td>
-                            <a href="{{url("/pasien/antrian/{$antrian->id}/cek-jadwal")}}" class="btn cur-p btn-info btn-color">Cek Jadwal</a>
+                            <a href="{{url("/pasien/jadwal/{$jadwal->id}/appointment")}}" class="btn cur-p btn-info btn-color">Lakukan Appointment</a>
 
                         </td>
                        </tr>
@@ -38,7 +44,7 @@
                 </table>
             </div>
             <div class="text-center">
-                {{$antrian_list->links()}}
+                {{$jadwal_list->links()}}
             </div>
         </div>
     </div>

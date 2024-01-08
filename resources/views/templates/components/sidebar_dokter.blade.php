@@ -55,23 +55,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="sidebar-link" href="{{url('/dokter/obat/catatan')}}">
-            <span class="icon-holder">
-              <i class="c-blue-500 ti-share"></i>
-            </span>
-            <span class="title">Catatan Obat</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="sidebar-link" href="{{url('/dokter/periksa/biaya')}}">
-            <span class="icon-holder">
-              <i class="c-deep-orange-500 ti-calendar"></i>
-            </span>
-            <span class="title">Biaya Periksa</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="sidebar-link" href="{{url('/dokter/pasien/riwayat')}}">
+          <a class="sidebar-link" href="{{url('/dokter/riwayat/')}}">
             <span class="icon-holder">
               <i class="c-blue-500 ti-share"></i>
             </span>
@@ -79,14 +63,7 @@
           </a>
         </li>
       
-        <li class="nav-item">
-          <a class="sidebar-link" href="{{url('/dokter/profile')}}">
-            <span class="icon-holder">
-              <i class="c-brown-500 ti-user"></i>
-            </span>
-            <span class="title">Update Profile</span>
-          </a>
-        </li>
+        
       </ul>
     </div>
   </div>

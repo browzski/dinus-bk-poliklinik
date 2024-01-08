@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DaftarPoliklinik;
 use App\Models\Dokter;
+use App\Models\JadwalPeriksa;
+use App\Models\Pasien;
 use App\Models\Poliklinik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use PDO;
 
 class DokterController extends Controller
 {
     public function dashboard(Request $request){
-        return view('dokter.dashboard');
+        $data = [];
+        $data['total_pasien'] = Pasien::count();
+        $data['daftar_pemeriksaan'] = DaftarPoliklinik::count();
+        $data['pemeriksaan_selesai'] = DaftarPoliklinik::where('status_periksa',1)->count();
+        $data['pemeriksaan_belum_selesai'] = DaftarPoliklinik::where('status_periksa',0)->count();
+        $jadwal_list = JadwalPeriksa::paginate(25);
+        return view('dokter.dashboard',compact('data','jadwal_list'));
     }
     public function getLogin(){
         return view('dokter.login');
@@ -62,5 +72,24 @@ class DokterController extends Controller
         return Redirect::to("/admin/dokter");
         
     }
+    public function profile(Request $request){
+        $profile = $request->session()->get('data');
+        $poliklinik_list = Poliklinik::all();
+        return view('dokter.profile.index',compact('profile','poliklinik_list'));
+    }
+    public function postProfile(Request $request){
+        $data = $request->session()->get('data');
+        $dokter = Dokter::find($data->id);
+        $payload = $request->all();
+        unset($payload['_token']);
+        $dokter->update($payload);
+        $dokter->save();
+
+        $request->session()->put("data",$dokter);
+        $data = $request->session()->get('data');
+        return Redirect::to('/dokter');
+    }
+
+   
 
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DaftarPoliklinik;
+use App\Models\Obat;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -9,7 +11,13 @@ use Illuminate\Support\Facades\Redirect;
 class PasienController extends Controller
 {
     public function dashboard(Request $request){
-        return view('pasien.dashboard');
+        $pasien = $request->session()->get('data');
+        $antrian_list = DaftarPoliklinik::where('id_pasien',$pasien->id)->get();
+        return view('pasien.dashboard',compact('antrian_list'));
+    }
+    public function detail($id){
+        $data = DaftarPoliklinik::find($id);
+        return view('pasien.antrian.detail',compact('data'));
     }
     public function getLogin(){
         return view('pasien.login');

@@ -1,4 +1,4 @@
-@extends('templates.main_pasien')
+@extends('templates.main_dokter')
 @section('title','Dashboard')
 @section('content')
 <div class="row gap-20 masonry pos-r">
@@ -34,11 +34,7 @@
                         <td>{{$antrian->jadwal->jam_selesai}}</td>
                         <td>{{$antrian->no_antrian}}</td>
                         <td>
-                           @if($antrian->status_periksa == 1)
-                           <a href="{{url('pasien/detail/'.$antrian->id)}}" class="btn btn-success text-white">Selesai</a>
-                           @elseif($antrian->status_periksa == 0)
-                           <button class="btn btn-danger text-white">Belum Selesai</button>
-                           @endif
+                           <a href="{{url('dokter/riwayat/detail/'.$antrian->id)}}" class="btn btn-success text-white">Selesai</a>
                         </td>
                      </tr>
                      @endforeach

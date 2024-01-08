@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Dokter;
+use App\Models\Obat;
+use App\Models\Pasien;
+use App\Models\Poliklinik;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +32,13 @@ class AdminController extends Controller
 
     }
     public function dashboard(Request $request){
-        return view('admin.dashboard');
+        $data = [];
+        $data['total_dokter'] = Dokter::count();
+        $data['total_obat'] = Obat::count();
+        $data['total_pasien'] = Pasien::count();
+        $data['total_poliklinik'] = Poliklinik::count();
+        $poliklinik_list = Poliklinik::paginate(25);
+        return view('admin.dashboard',compact('data','poliklinik_list'));
     }
     public function getLogin(){
         return view('admin.login');
